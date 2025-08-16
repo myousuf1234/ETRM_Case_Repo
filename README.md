@@ -38,13 +38,5 @@ This repository contains a prototype system to **ingest**, **normalize**, and **
 See `schema.sql`. The ETL writes *exactly* these columns.
 - `broker, account_id, product_code, product_name, instrument_type, put_call, strike_price, delivery_month, side, quantity, trade_date, trade_price, market_price, variation_margin, currency, lot_size, fx_spot_rate`.
 
-## Assumptions
-- `instrument_type`: inferred as `OPTION` when option fields (e.g., `Strike` / `Option Type`) are present; otherwise `FUTURE`.
-- `delivery_month`: standardized to `YYYY-MM` when date-like fields exist; otherwise string from source.
-- `side`: kept as provided by broker (uppercase). If not provided, left blank.
-- `quantity` kept positive; P&L sign can be derived as needed in Power BI.
-- `market_price`: uses `Market Rate` where available.
-
-
 ---
 
